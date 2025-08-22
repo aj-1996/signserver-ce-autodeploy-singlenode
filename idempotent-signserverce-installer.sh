@@ -7,7 +7,7 @@ WFLY_DIR="/opt/wildfly-${WFLY_VER}"
 WFLY_LINK="/opt/wildfly"
 SS_VER="7.1.1"
 SS_ZIP_BIN="signserver-ce-${SS_VER}-bin.zip"
-SS_URL="https://github.com/Keyfactor/signserver-ce/releases/download/v${SS_VER}/${SS_ZIP_BIN}"
+SS_URL="https://github.com/Keyfactor/signserver-ce/releases/download/v7.1.1/signserver-ce-7.1.1-bin.zip"
 HEAP_MB="${HEAP_MB:-2048}"
 DB_ROOT_PW="${DB_ROOT_PW:-StrongRoot!123}"
 DB_NAME="signserver"
@@ -20,7 +20,7 @@ dnf -y install java-17-openjdk unzip wget tar ant mariadb-server
 
 # ---------- WildFly ----------
 if [ ! -d "$WFLY_DIR" ]; then
-  wget -q "https://download.jboss.org/wildfly/${WFLY_VER}/wildfly-${WFLY_VER}.zip" -O /tmp/wildfly.zip
+  wget -q "wget https://download.jboss.org/wildfly/32.0.0.Final/wildfly-32.0.0.Final.zip" -O /tmp/wildfly.zip
   unzip -q /tmp/wildfly.zip -d /opt/
 fi
 ln -snf "$WFLY_DIR" "$WFLY_LINK"
